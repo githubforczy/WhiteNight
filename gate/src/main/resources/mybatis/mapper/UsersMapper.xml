@@ -2,24 +2,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.whitenight.gate.model.dao.UsersMapper">
-  <select id="queryAll" resultType="com.whitenight.gate.entity.Users">
+  <select id="queryAll" resultType="com.whitenight.gate.entity.User">
     SELECT
       *
     FROM
-      users
+      user
   </select>
 
-  <insert id="addUser" parameterType="com.whitenight.gate.entity.Users">
+  <insert id="addUser" parameterType="com.whitenight.gate.entity.User">
     INSERT INTO
-           users
-           (userName,passWord,user_sex,nick_name)
+           user
+           (
+             user_name,
+             password,
+             user_sex,
+             nick_name,
+             is_deleted,
+             create_by,
+             create_date,
+             update_by,
+             update_date
+           )
        VALUES
-           (#{userName}, #{passWord}, #{userSex}, #{nickName})
+           (
+             #{userName},
+             #{password},
+             #{userSex},
+             #{nickName},
+             0,
+             #{createBy}
+             now()
+           )
   </insert>
 
-  <update id="update" parameterType="com.whitenight.gate.entity.Users" >
+  <update id="update" parameterType="com.whitenight.gate.entity.User" >
     UPDATE
-    users
+    user
     SET
     <if test="userName != null">userName = #{userName},</if>
     <if test="passWord != null">passWord = #{passWord},</if>
@@ -30,7 +48,7 @@
 
   <delete id="delete" parameterType="Long" >
    DELETE FROM
-            users
+            user
    WHERE
             id =#{id}
 </delete>

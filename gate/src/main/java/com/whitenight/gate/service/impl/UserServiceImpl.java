@@ -1,6 +1,7 @@
 package com.whitenight.gate.service.impl;
 
-import com.whitenight.gate.entity.Users;
+import com.whitenight.gate.base.annotation.WnLog;
+import com.whitenight.gate.entity.User;
 import com.whitenight.gate.model.dao.UsersMapper;
 import com.whitenight.gate.service.UserService;
 import java.util.List;
@@ -13,22 +14,23 @@ public class UserServiceImpl implements UserService {
     private UsersMapper usersMapper;
 
     @Override
-    public List<Users> queryAll() {
+    public List<User> queryAll() {
         return usersMapper.queryAll();
     }
 
     @Override
-    public Users getOne(Long id) {
+    public User getOne(Long id) {
         return null;
     }
 
     @Override
-    public void addUser(Users user) {
+    @WnLog
+    public void addUser(User user) {
         usersMapper.addUser(user);
     }
 
     @Override
-    public void update(Users user) {
+    public void update(User user) {
         usersMapper.update(user);
     }
 

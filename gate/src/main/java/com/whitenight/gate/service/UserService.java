@@ -1,16 +1,16 @@
 package com.whitenight.gate.service;
 
-import com.whitenight.gate.entity.Users;
+import com.whitenight.gate.entity.User;
 import java.util.List;
 
 public interface UserService {
-    List<Users> queryAll();
+    List<User> queryAll();
 
-    Users getOne(Long id);
+    User getOne(Long id);
 
-    void addUser(Users user);
+    void addUser(User user);
 
-    void update(Users user);
+    void update(User user);
 
     void delete(Long id);
 }
