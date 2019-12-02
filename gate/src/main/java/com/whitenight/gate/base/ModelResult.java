@@ -42,4 +42,13 @@ public class ModelResult implements Serializable {
             ,ResponseCodeEnum.ERROR_CODE.getCode()
             ,data);
     }
+
+    /**
+     * 创建一个未登录响应对象
+     *
+     * @return
+     */
+    public static <T> ModelResult unLogin() {
+        return new ModelResult(ResponseCodeEnum.UN_LOGIN_CODE.getCodeMsg(), "请先登录", null);
+    }
 }

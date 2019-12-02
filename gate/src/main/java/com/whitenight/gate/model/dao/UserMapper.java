@@ -3,8 +3,10 @@ package com.whitenight.gate.model.dao;
 import com.whitenight.gate.entity.User;
 import java.util.List;
 
-public interface UsersMapper {
+public interface UserMapper {
     List<User> queryAll();
+
+    User findByUserName(String username);
 
     void addUser(User user);
 

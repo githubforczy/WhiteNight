@@ -6,7 +6,8 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public enum ResponseCodeEnum {
     SUCCESS_CODE("成功","200"),
-    ERROR_CODE("失败","400");
+    ERROR_CODE("失败","400"),
+    UN_LOGIN_CODE("请登陆","401");
 
     private String codeMsg;
     private String code;
